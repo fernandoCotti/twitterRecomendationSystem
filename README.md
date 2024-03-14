@@ -8,9 +8,9 @@ Within social networks, this could include predicting friendships, interactions,
 
 This project was designed based on the following steps:
 
-**1.** **Data Loading and Exploration:** Loading data from CSV files containing user interactions and tweet data.
-**2.** **Graph Construction:** Building a directed graph representing user interactions based on the data provided, with users as nodes and interactions as edges.
-**3.** **Feature Engineering:** Generating features for link prediction, including both network-based features (e.g., common neighbors, Jaccard coefficient) and content-based features (e.g., content similarity between users' tweets).
-**4.** **Model Training and Evaluation:** Splitting the dataset into training and validation sets, training a machine learning model using the extracted features, and evaluating the model's performance using metrics like precision, recall, and normalized discounted cumulative gain (nDCG) at different values of k, which represents the relevant elements to analyse.
-**5.** **Recommendation Generation:** Using the trained model to predict links between users for a given set of user pairs, based on their network and content-based features.
+**1.** **Data Loading and Exploration:** Loading data from CSV files containing user interactions and tweet data./n
+**2.** **Graph Construction:** Building a directed graph representing user interactions based on the data provided, with users as nodes and interactions as edges./n
+**3.** **Feature Engineering:** Generating features for link prediction, including both network-based features (e.g., common neighbors, Jaccard coefficient) and content-based features (e.g., content similarity between users' tweets)./n
+**4.** **Model Training and Evaluation:** Splitting the dataset into training and validation sets, training a machine learning model using the extracted features, and evaluating the model's performance using metrics like precision, recall, and normalized discounted cumulative gain (nDCG) at different values of k, which represents the relevant elements to analyse./n
+**5.** **Recommendation Generation:** Using the trained model to predict links between users for a given set of user pairs, based on their network and content-based features./n
 **6.** **Results Visualization and Reporting:** Visualizing the results of the link prediction, including the predicted links and their associated probabilities, and reporting the performance of the model using appropriate evaluation metrics.
