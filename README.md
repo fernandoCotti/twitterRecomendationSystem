@@ -1,16 +1,22 @@
 # Social Network Link Prediction with Content-Based Features
 
-Content-based features are extracted from the text of tweets shared by users. 
-These features capture the similarity between the content of tweets shared by pairs of users, using techniques such as TF-IDF, word embeddings, or simple word overlap.
-This project aims to develop a link prediction system for social networks by combining both network topology and content-based features. 
-Link prediction involves predicting future interactions between entities in a network. 
-Within social networks, this could include predicting friendships, interactions, or associations between users.
+Link prediction means predicting future interactions between entities in a network. In a social network, that could be friendships, interactions or associations between users.
+This project predicts whether a pair of Twitter users will interact, based on how similar the content of their tweets is.
 
-This project was designed based on the following steps:
+## What the notebook does
 
-**1.** **Data Loading and Exploration:** Loading data from CSV files containing user interactions and tweet data.<br/>
-**2.** **Graph Construction:** Building a directed graph representing user interactions based on the data provided, with users as nodes and interactions as edges.<br/>
-**3.** **Feature Engineering:** Generating features for link prediction, including both network-based features (e.g., common neighbors, Jaccard coefficient) and content-based features (e.g., content similarity between users' tweets).<br/>
-**4.** **Model Training and Evaluation:** Splitting the dataset into training and validation sets, training a machine learning model using the extracted features, and evaluating the model's performance using metrics like precision, recall, and normalized discounted cumulative gain (nDCG) at different values of k, which represents the relevant elements to analyse.<br/>
-**5.** **Recommendation Generation:** Using the trained model to predict links between users for a given set of user pairs, based on their network and content-based features.<br/>
-**6.** **Results Visualization and Reporting:** Visualizing the results of the link prediction, including the predicted links and their associated probabilities, and reporting the performance of the model using appropriate evaluation metrics.
+**1.** **Data loading:** Loads tweets, the candidate user pairs to predict, and the ground-truth labels from CSV files.<br/>
+**2.** **Graph construction:** Builds a directed interaction graph with NetworkX. Users are nodes, mentions are edges, and retweet counts are edge weights.<br/>
+**3.** **Content-based feature:** For each candidate pair, it computes the word-overlap (Jaccard) similarity between the two users' most recent tweets. Features for a random sample of 500 pairs are computed in parallel with joblib.<br/>
+**4.** **Model training and evaluation:** Splits the sample 80/20, trains a Random Forest classifier, and evaluates it with precision, recall and nDCG@5/10/20.
+
+## Tech stack
+
+Python, pandas, NetworkX, scikit-learn, joblib, Google Colab
+
+## Possible extensions
+
+These are not implemented yet:
+- Network-topology features computed from the graph (common neighbours, Jaccard coefficient, Adamic–Adar).
+- Richer text similarity (TF-IDF, word embeddings) and using a user's whole tweet history instead of only the latest tweet.
+- Training on the full candidate set instead of a 500-pair sample, ranking pairs by predicted probability, and reporting/visualising the predicted links.
